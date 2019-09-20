@@ -1,0 +1,13 @@
+# MacOS:
+.DS_Store
+
+*.xml
+*.iml
+
+# Byte-compiled files:
+*.class
+
+createdFiles.lst
+inputFiles.lst
+
+application.properties
