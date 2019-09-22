@@ -16,3 +16,4 @@
 > - **is_number(s):** Tell whether the input string is numeric, return True for yes, otherwise return False
 
 * **Video Link**
+>  https://youtu.be/HVGM2JbwUqk
