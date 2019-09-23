@@ -1,22 +1,10 @@
 #!/usr/bin/env python
 
-""" timed_out_and_back.py - Version 1.2 2014-12-14
-    A basic demo of the using odometry data to move the robot along
-    and out-and-back trajectory.
-    Created for the Pi Robot Project: http://www.pirobot.org
-    Copyright (c) 2012 Patrick Goebel.  All rights reserved.
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.5
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details at:
-
-    http://www.gnu.org/licenses/gpl.html
-
+""" timed_out_and_back.py 
+    
+    This file is modified base on the original timed_out_and_back.py provided by 
+    the textbook "Ros By Example" by Yueen Ma(ym2745) and Jiaming Hao(jh4152) 
+    according to the robotics lab1.
 """
 
 import rospy
@@ -75,7 +63,8 @@ class OutAndBack():
 		except KeyboardInterrupt:
 		   print "Interrupted!"
 
-
+    '''Take the translation distance as a string and perform the translation,
+       handle both positive and negative translations'''
     def translations(self, dist_str):
         distance = float(dist_str)
         self.linear_speed = abs(self.linear_speed) * (distance / abs(distance))
@@ -93,7 +82,9 @@ class OutAndBack():
         move_cmd = Twist()
         self.cmd_vel.publish(move_cmd)
         rospy.sleep(1)
-
+    
+    '''Take the rotation in degree and perform the rotation, positive angle for 
+    counterclockwise rotations, negative angle corresponds to clockwise rotations'''
     def rotations(self, ang_str):
         ang_rad = math.radians(float(ang_str))
         self.angular_speed = abs(self.angular_speed) * (ang_rad / abs(ang_rad))
@@ -111,14 +102,15 @@ class OutAndBack():
         move_cmd = Twist()
         self.cmd_vel.publish(move_cmd)
         rospy.sleep(1)
-
+    
+    '''Stop the robot when shutting down the node'''
     def shutdown(self):
         # Always stop the robot when shutting down the node.
         rospy.loginfo("Stopping the robot...")
         self.cmd_vel.publish(Twist())
         rospy.sleep(1)
 
-
+'''Tell whether the input string is numeric, return True for yes, otherwise return False'''
 def is_number(s):
     try:
         float(s)
