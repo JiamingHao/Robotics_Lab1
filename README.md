@@ -1,7 +1,11 @@
 # W4733 Robotics Lab 1
 
 * **Usage**:
->Run the following four commands in order and each in a separate terminal:
+> First of all, copy the 'timed_out_and_back.py' file into the 'rbx1_nav' package (change '/PATH/TO/' to the actually path):
+> 1. roscd rbx1_nav/nodes
+> 2. cp /PATH/TO/timed_out_and_back.py ./
+>
+> Then, run the following four commands in order and each in a separate terminal:
 >1. roscore  
 >2. roslaunch rbx1_bringup fake_turtlebot.launch
 >3. rosrun rviz rviz -d \`rospack find rbx1_nav\`/sim.rviz
@@ -21,4 +25,5 @@
 * **Video Link**
 
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/HVGM2JbwUqk/0.jpg)](http://www.youtube.com/watch?v=HVGM2JbwUqk)
+
 https://youtu.be/HVGM2JbwUqk
